@@ -1,0 +1,111 @@
+>>>>>>To see all databases<<<<<<<>>
+show dbs
+
+>>>>>>>To create new database<<<<<<<< 
+use database name  
+
+>>>>>>>To create collection<<<<<<<<<  
+db.first.insert({'id':1,name:'john'})
+db.second.insert({'id':1,name:'john'})
+
+>>>>>>>>>>>To go inside the database<<<<<<<<<<<<<  
+use databasename
+
+>>>>>>>>To see the collection<<<<<<<< 
+show collections
+
+>>>>>>>>>>To see document<<<<<<<<<<<<<<<<
+db.first.find()
+
+db.first.insert({'_id':2,name:'deepu'})
+
+_id value is of:
+12 bytes 
+>4 bytes>> timestamps  
+>5 bytes>> random value 
+>3 bytes>> counter 
+
+db.first.insert({name:'deepu'})
+db.first.insert({name:'hemanth'})
+db.first.insert({name:'anju'})
+
+{ "_id" : ObjectId("614c88310c22b79007794a95"), "name" : "deepu" }
+{ "_id" : ObjectId("614c884b0c22b79007794a96"), "name" : "hema" }
+{ "_id" : ObjectId("614c889c0c22b79007794a97"), "name" : "anju" }
+
+>>>>>>>>To remove document<<<<<<<<<<<<<<
+db.first.remove()
+
+> db.first.insert({name:'punya'})
+WriteResult({ "nInserted" : 1 })
+> db.first.insert({name:'goutham'})
+WriteResult({ "nInserted" : 1 })
+
+> db.first.find()
+{ "_id" : ObjectId("614c89a33145a485ab95da82"), "name" : "deepu" }
+{ "_id" : ObjectId("614c89bd3145a485ab95da83"), "name" : "hema" }
+{ "_id" : ObjectId("614c89d73145a485ab95da84"), "name" : "anju" }
+{ "_id" : ObjectId("61509199149ab60950bfb9ab"), "name" : "punya" }
+{ "_id" : ObjectId("615091c6149ab60950bfb9ac"), "name" : "goutham" }
+>
+
+db.category.insert([
+    {
+        "id":1,
+        "category":"mobile"
+    },
+    {
+        "id":2,
+        "category":"shirt"
+    },    
+    {
+        "id":3,
+        "category":"laptop"
+    },    
+    {
+        "id":4,
+        "category":"suits"
+    },        
+])
+BulkWriteResult({
+        "writeErrors" : [ ],
+        "writeConcernErrors" : [ ],
+        "nInserted" : 4,
+        "nUpserted" : 0,
+        "nMatched" : 0,
+        "nModified" : 0,
+        "nRemoved" : 0,
+        "upserted" : [ ]
+})
+
+ show collections
+category
+first
+
+> db.category.find()
+{ "_id" : ObjectId("61509263149ab60950bfb9ad"), "id" : 1, "category" : "mobile" }
+{ "_id" : ObjectId("61509263149ab60950bfb9ae"), "id" : 2, "category" : "shirt" }
+{ "_id" : ObjectId("61509263149ab60950bfb9af"), "id" : 3, "category" : "laptop" }
+{ "_id" : ObjectId("61509263149ab60950bfb9b0"), "id" : 4, "category" : "shirts" }
+
+> db.category.find().pretty()
+{
+        "_id" : ObjectId("61509263149ab60950bfb9ad"),
+        "id" : 1,
+        "category" : "mobile"
+}
+{
+        "_id" : ObjectId("61509263149ab60950bfb9ae"),
+        "id" : 2,
+        "category" : "shirt"
+}
+{
+        "_id" : ObjectId("61509263149ab60950bfb9af"),
+        "id" : 3,
+        "category" : "laptop"
+}
+{
+        "_id" : ObjectId("61509263149ab60950bfb9b0"),
+        "id" : 4,
+        "category" : "shirts"
+}
